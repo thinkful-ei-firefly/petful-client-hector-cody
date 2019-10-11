@@ -24,7 +24,7 @@ export default class Landing extends React.Component {
             <p>Click Adopt! to view animals available.</p>
           </article>
         </section>
-        <Link to={'#'} className="Link-btn">
+        <Link to={'/adopt'} className="Link-btn">
           Adopt!
         </Link>
       </div>

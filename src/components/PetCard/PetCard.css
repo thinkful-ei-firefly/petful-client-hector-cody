@@ -1,0 +1,12 @@
+.PetCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: gray;
+  border: 2px black solid;
+}
+
+.PetCard img{
+  width: 300px;
+  margin: 5px;
+}
