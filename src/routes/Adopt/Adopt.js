@@ -8,36 +8,49 @@ import './Adopt.css'
 export default class Adopt extends React.Component {
   state = {
     petData: [],
-    currUser: 'Hector',
+    currUser: 'Cody',
     users: null,
-    newUser: null,
     adoptionHistory: null
   }
 
   onClickAdopt = async petData => {
-    // const adoptData = {
-    //   pet: petData,
-    //   owner: this.state.currUser
-    // }
-    console.log('adopt')
+
+    // console.log('adopt')
+    // console.log(petData.pet)
     // PetfulApiService
     try{
-      if(petData.type==='cat'){
+      if(petData.pet.type==='cat'){
+        console.log('got cat')
         PetfulApiService.deleteCat()
-        PetfulApiService.getCat()
-      } if (petData.type==='Dog'){
+       
+      } if (petData.pet.type==='Dog'){
         // service for delete dog
         PetfulApiService.deleteDog()
-        PetfulApiService.getDog()
       }
-    }catch{
 
+      const cat = await PetfulApiService.getCat()
+      const dog = await PetfulApiService.getDog()
+      const users = await PetfulApiService.getUsers()
+
+      const pets = []
+      pets.push(cat)
+      pets.push(dog)
+
+      this.setState({ petData:pets, users: users, currUser: users[0] })
+    }catch(e){
+      console.log('error:', e.error)
     }
   }
 
-  onClickNewUser = (newUser) => {
-    this.setState({newUser:newUser})
-    console.log('here')
+  onClickNewUser = async () => {
+    try{
+      const users = await PetfulApiService.getUsers()
+      this.setState({users})
+    } catch{
+      console.log('onClickNewUser error')
+    }
+    // console.log('here')
+
   }
 
 
@@ -47,6 +60,7 @@ export default class Adopt extends React.Component {
     const currUser = users[Math.floor(Math.random() * users.length)]
     this.setState({ currUser: currUser })
   }
+
   async componentDidMount() {
     try {
       const cat = await PetfulApiService.getCat()

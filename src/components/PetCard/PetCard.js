@@ -13,6 +13,7 @@ export default class PetCard extends React.Component {
     const newAdoption = {
       pet: this.props.petData,
     }
+    // console.log(this.props.petData)
     this.props.onClickAdopt(newAdoption)
   }
 
@@ -34,7 +35,7 @@ export default class PetCard extends React.Component {
             <article>
               {this.props.petData.story}
             </article>
-            {this.props.allowedToAdopt?<button onClick={this.props.onClickAdopt}>Adopt!</button>:<button disabled>Adopt</button>}
+            {this.props.allowedToAdopt?<button onClick={this.onClickAdopt}>Adopt!</button>:<button disabled>Adopt</button>}
             
           </section>
         </div>
