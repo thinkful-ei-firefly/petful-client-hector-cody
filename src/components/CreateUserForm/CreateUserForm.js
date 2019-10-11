@@ -14,7 +14,8 @@ export default class Adopt extends React.Component {
     try{
       // eslint-disable-next-line no-unused-vars
       const post = await PetfulApiService.newUser(user)
-      console.log('post')
+      // console.log('post')
+      this.props.onClickNewUser(post)
     } catch{
       console.log('new user post error')
     }

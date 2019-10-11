@@ -58,6 +58,15 @@ const PetfulApiService = {
     }
 
     return res.json()
+  }, 
+  async getUsers(){
+    const res = await fetch('https://petful-hector-cody.herokuapp.com/api/adopters')
+
+    if (!res.ok){
+      return 'Error with petfulApiService.newUser()'
+    }
+
+    return res.json()
   }
 
 }

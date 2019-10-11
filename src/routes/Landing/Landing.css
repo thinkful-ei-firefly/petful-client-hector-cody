@@ -6,7 +6,9 @@
 
 .Landing article{
   margin: 20px;
-  text-align: center;
+  border: 2px black solid;
+  padding: 20px;
+  /* text-align: center; */
 }
 
 
