@@ -9,6 +9,17 @@
   text-align: center;
 }
 
+.submit-btn{
+  border: 3px solid #70cf36;
+  background-color: #70cf36;
+  padding: 10px 15px;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  
+  text-align: center;
+}
+
 body{
   max-width: 800px;
   margin: 0 auto;

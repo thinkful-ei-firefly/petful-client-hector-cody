@@ -1,5 +1,11 @@
 .Adopt{
   display: flex;
+  flex-direction: column;
+}
+
+.Adopt .cards{
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex: wrap;
 }
